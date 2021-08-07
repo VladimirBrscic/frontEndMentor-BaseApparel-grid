@@ -79,7 +79,7 @@ img{
   justify-content: center;
   width: 100%;
 }
-.input-container{
+.form-control{
   position: relative;
   flex: 1 1 21rem;
   max-width: 28rem;
@@ -111,23 +111,37 @@ button {
 button:hover{
   background: hsl(0, 36%, 90%);
 }
-
-
-/* active states */
-.button-active {
-  background: hsl(0, 36%, 90%);
+.message{
+  margin: 1rem;
+  color: var(--soft-red);
+  font-size: 0.8rem;
+  visibility: hidden;
 }
+
 .error-icon{
   position: absolute;
   right: 5rem;
   top: 0.9rem;
-  display: none;
+  visibility: hidden;
 }
-.warning-text{
-  display: none;
-  color: var(--soft-red);
-  font-size: 0.8rem;
-  padding-left: 1rem;
+.button-active {
+  background: hsl(0, 36%, 90%);
+}
+
+/* error cases */
+.form-control.error .message {
+  visibility: visible;
+}
+.form-control.error .error-icon {
+	visibility: visible;
+}
+
+/* success cases */
+.form-control.success .message {
+  visibility: hidden;
+}
+.form-control.success .error-icon {
+	visibility: hidden;
 }
 
 

@@ -36,3 +36,5 @@ Users should be able to:
 - Mobile-first workflow
 
 ### What I learned
+
+Basic form validation functionality.

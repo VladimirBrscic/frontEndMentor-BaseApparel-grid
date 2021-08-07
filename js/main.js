@@ -1,18 +1,19 @@
-const inputForm = document.querySelector('form');
-const warningText = document.querySelector('.warning-text');
-const errorIcon = document.querySelector('.error-icon');
-const button = document.querySelector('button');
+const form = document.querySelector('form');
+const formControl =  document.querySelector('.form-control');
+const emailInput = document.querySelector('input');
 
-// controlValue locks form after invalid email has been entered
-let controlValue = 0;
-
-inputForm.addEventListener( 'submit', (e) => {
+form.addEventListener( 'submit', (e) => {
   e.preventDefault();
-  let inputValue = document.querySelector('input').value;
-  if (!inputValue.includes('@') && controlValue < 1) {
-    warningText.style.display = 'block';
-    errorIcon.style.display = 'block';
-    button.classList.toggle('button-active');
-    controlValue =+ 1;
-  }
+  checkInput();
 })
+
+function checkInput(){
+  const inputValue = emailInput.value.trim();
+  const regExTest = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if(inputValue === '' || !regExTest.test(inputValue)){
+    formControl.className = 'form-control error';
+  }else{
+    formControl.className = 'form-control success';
+  }
+}
